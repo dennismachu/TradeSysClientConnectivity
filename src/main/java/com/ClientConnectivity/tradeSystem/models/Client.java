@@ -1,15 +1,16 @@
 package com.ClientConnectivity.tradeSystem.models;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
 
 @Entity
-@Table(name="CLIENT")
 public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(updatable = false, nullable = false)
     private Long ID;
 
 
@@ -23,6 +24,10 @@ public class Client implements Serializable {
         this.name = name;
     }
 
+    public Long getID() {
+        return ID;
+    }
+
     public String getName() {
         return name;
     }
@@ -30,6 +35,8 @@ public class Client implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
+
 
     @Override
     public String toString() {

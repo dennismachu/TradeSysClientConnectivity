@@ -1,7 +1,7 @@
 package com.ClientConnectivity.tradeSystem.services;
 
 import com.ClientConnectivity.tradeSystem.models.Client;
-import com.ClientConnectivity.tradeSystem.Exceptions.ClientNotFoundException;
+import com.ClientConnectivity.tradeSystem.exceptions.ClientNotFoundException;
 import com.ClientConnectivity.tradeSystem.repo.ClientRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,5 +26,11 @@ public class ClientConnectivityService{
         return this.clientRepo.findClientByID(ID)
                 .orElseThrow(() -> new ClientNotFoundException("Client with ID: "+ ID +" was not found "));
     }
+
+    public void deleteClientByID(Long ID){
+        this.clientRepo.deleteById(ID);
+    }
+
+
 
 }

@@ -1,4 +1,4 @@
-package com.ClientConnectivity.tradeSystem.Exceptions;
+package com.ClientConnectivity.tradeSystem.exceptions;
 
 public class ClientNotFoundException extends RuntimeException{
     public ClientNotFoundException(String message) {

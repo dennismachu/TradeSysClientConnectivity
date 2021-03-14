@@ -37,5 +37,15 @@ public class ClientController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Something went wrong while saving.");
     }
 
+    @DeleteMapping(value = "/delete/{id}")
+    public  ResponseEntity<?> deleteClient (@PathVariable("id") Long id){
+        this.ccs.deleteClientByID(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Client> findClientByID (@PathVariable("id") Long id){
+        return new ResponseEntity<>(this.ccs.findClientByID(id),HttpStatus.OK);
+    }
 
 }

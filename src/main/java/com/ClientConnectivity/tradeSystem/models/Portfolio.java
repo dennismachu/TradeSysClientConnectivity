@@ -7,5 +7,5 @@ import java.util.List;
 @Component
 public class Portfolio {
     private String name;
-    private List<Stock> stocks;
+    private List<Product> products;
 }

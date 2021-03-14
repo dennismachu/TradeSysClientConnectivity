@@ -3,7 +3,8 @@ package com.ClientConnectivity.tradeSystem.models;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Stock {
+public class Product {
     private String ticker;
-    private double price;
+    private double price; // current market price (last accepted market price)
+                          // should interface with product pricing service
 }

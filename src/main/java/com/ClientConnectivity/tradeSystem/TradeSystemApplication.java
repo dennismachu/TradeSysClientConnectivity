@@ -18,6 +18,4 @@ public class TradeSystemApplication {
 		SpringApplication.run(TradeSystemApplication.class, args);
 	}
 
-
-
 }
