@@ -8,6 +8,11 @@ group = 'com.ClientConnectivity'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
+tasks.withType(Test) {
+	scanForTestClasses = false
+	include "**/*Tests.class" // whatever Ant pattern matches your test class files
+}
+
 repositories {
 	mavenCentral()
 }
