@@ -1,6 +1,6 @@
 package com.ClientConnectivity.tradeSystem.models;
 
-import javax.annotation.PostConstruct;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -15,6 +15,7 @@ public class Client implements Serializable {
 
 
     private String name;
+    //private double funds;
    // private List<Portfolio> portfolios;
 
     public Client(){
