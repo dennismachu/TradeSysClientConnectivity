@@ -1,5 +1,1 @@
 language: java
-install: skip
-script:
-  - ./gradlew check
-  - ./gradlew install -x check
