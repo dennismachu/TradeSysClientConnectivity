@@ -1,7 +1,10 @@
 package com.ClientConnectivity.tradeSystem.controllers;
 
 import com.ClientConnectivity.tradeSystem.models.Client;
+import com.ClientConnectivity.tradeSystem.models.ProductOrder;
 import com.ClientConnectivity.tradeSystem.services.ClientConnectivityService;
+import com.ClientConnectivity.tradeSystem.services.OrderValidationClient;
+import com.example.consumingwebservice.wsdl.PostOrderResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +17,9 @@ import java.util.List;
 @RequestMapping(path = "/client")
 public class ClientController {
 
+    @Autowired
+    OrderValidationClient orderValidationClient;
+
     private final ClientConnectivityService ccs;
 
     public ClientController(ClientConnectivityService ccs) {
@@ -21,7 +27,7 @@ public class ClientController {
     }
 
     @GetMapping(path = "/all")
-    public ResponseEntity< List<Client>> getClients(){
+    public ResponseEntity<List<Client>> getClients(){
       return new ResponseEntity<>(this.ccs.getAllClients(),HttpStatus.OK);
     }
 
@@ -46,6 +52,15 @@ public class ClientController {
     @GetMapping("/{id}")
     public ResponseEntity<Client> findClientByID (@PathVariable("id") Long id){
         return new ResponseEntity<>(this.ccs.findClientByID(id),HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/validate")
+    public ResponseEntity<PostOrderResponse> validateOrder (@RequestBody ProductOrder productOrder){
+
+        PostOrderResponse newResponse = orderValidationClient.validateOrder(productOrder.getID());
+
+        return new ResponseEntity<>(newResponse,HttpStatus.OK);
+
     }
 
 }
