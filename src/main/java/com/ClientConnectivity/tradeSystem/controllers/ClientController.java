@@ -8,12 +8,11 @@ import com.example.consumingwebservice.wsdl.PostOrderResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping(path = "/client")
 public class ClientController {
 
@@ -57,7 +56,7 @@ public class ClientController {
     @PostMapping(value = "/validate")
     public ResponseEntity<PostOrderResponse> validateOrder (@RequestBody ProductOrder productOrder){
 
-        PostOrderResponse newResponse = orderValidationClient.validateOrder(productOrder.getID());
+        PostOrderResponse newResponse = orderValidationClient.validateOrder(productOrder);
 
         return new ResponseEntity<>(newResponse,HttpStatus.OK);
 
