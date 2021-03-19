@@ -24,7 +24,7 @@ repositories {
 task genJaxb {
 	ext.sourcesDir = "${buildDir}/generated-sources/jaxb"
 	ext.classesDir = "${buildDir}/classes/jaxb"
-	ext.schema = "http://localhost:8081/ws/productOrder.wsdl"
+	ext.schema = "https://order-val.herokuapp.com/ws/productOrder.wsdl"
 
 	outputs.dir classesDir
 
@@ -72,7 +72,6 @@ dependencies {
 	//XML Parsing
 	implementation 'org.glassfish.jaxb:jaxb-runtime'
 	compile(files(genJaxb.classesDir).builtBy(genJaxb))
-
 	jaxb "com.sun.xml.bind:jaxb-xjc:2.1.7"
 
 	//DB
