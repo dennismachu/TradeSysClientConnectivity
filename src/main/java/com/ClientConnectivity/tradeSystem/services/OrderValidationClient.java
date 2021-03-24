@@ -24,7 +24,7 @@ public class OrderValidationClient extends WebServiceGatewaySupport {
         request.setDate( productOrder.getTimeCreated().toString());
 
         return (PostOrderResponse) getWebServiceTemplate()
-                .marshalSendAndReceive("http://localhost:8081/ws/productOrder", request ,
+                .marshalSendAndReceive("https://order-val.herokuapp.com/ws/productOrder", request ,
                         new SoapActionCallback("http://www.order.com/validate/postOrderRequest"));
 
     }
