@@ -57,7 +57,6 @@ public class ClientController {
     public ResponseEntity<PostOrderResponse> validateOrder (@RequestBody ProductOrder productOrder){
 
         PostOrderResponse newResponse = orderValidationClient.validateOrder(productOrder);
-
         return new ResponseEntity<>(newResponse,HttpStatus.OK);
 
     }

@@ -15,16 +15,17 @@ public class OrderValidationClient extends WebServiceGatewaySupport {
         PostOrderRequest request = new PostOrderRequest();
         request.setID(productOrder.getID());
         request.setPrice(productOrder.getPrice());
+        request.setClientId(productOrder.getClientId());
+        request.setFunds(productOrder.getFunds());
+        request.setQuantityOwned(productOrder.getQuantityOwned());
         request.setQuantity(productOrder.getQuantity());
         request.setSide(productOrder.getSide());
         request.setProductName(productOrder.getProductName());
         request.setDate( productOrder.getTimeCreated().toString());
 
-        PostOrderResponse response = (PostOrderResponse) getWebServiceTemplate()
-                .marshalSendAndReceive("https://order-val.herokuapp.com/ws/productOrder", request ,
+        return (PostOrderResponse) getWebServiceTemplate()
+                .marshalSendAndReceive("http://localhost:8081/ws/productOrder", request ,
                         new SoapActionCallback("http://www.order.com/validate/postOrderRequest"));
-
-        return response;
 
     }
 
