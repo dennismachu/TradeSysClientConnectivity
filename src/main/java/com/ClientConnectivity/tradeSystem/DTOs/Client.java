@@ -1,4 +1,4 @@
-package com.ClientConnectivity.tradeSystem.models;
+package com.ClientConnectivity.tradeSystem.DTOs;
 
 
 import javax.persistence.*;

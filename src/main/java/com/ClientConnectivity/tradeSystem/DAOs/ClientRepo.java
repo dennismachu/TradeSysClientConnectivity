@@ -1,6 +1,6 @@
-package com.ClientConnectivity.tradeSystem.repo;
+package com.ClientConnectivity.tradeSystem.DAOs;
 
-import com.ClientConnectivity.tradeSystem.models.Client;
+import com.ClientConnectivity.tradeSystem.DTOs.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;

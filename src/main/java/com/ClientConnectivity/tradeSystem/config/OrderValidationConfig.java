@@ -1,7 +1,7 @@
 package com.ClientConnectivity.tradeSystem.config;
 
 
-import com.ClientConnectivity.tradeSystem.services.OrderValidationClient;
+import com.ClientConnectivity.tradeSystem.utils.OrderValidationClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
