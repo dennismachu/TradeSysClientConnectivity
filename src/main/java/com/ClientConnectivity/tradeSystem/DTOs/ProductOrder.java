@@ -15,7 +15,7 @@ public class ProductOrder implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false, nullable = false)
-    private Long id; //random UUID string;
+    private Long ID;
 
     private String orderId;
     private String productName; //product name
@@ -81,7 +81,7 @@ public class ProductOrder implements Serializable {
     @Override
     public String toString() {
         return "ProductOrder{" +
-                "id=" + id +
+                "id=" + ID +
                 ", orderId='" + orderId + '\'' +
                 ", productName='" + productName + '\'' +
                 ", price=" + price +
