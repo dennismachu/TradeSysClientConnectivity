@@ -26,6 +26,11 @@ public class ClientController {
         this.ccs = ccs;
     }
 
+//    @PostMapping(value = "client/login")
+//    public ResponseEntity<Boolean> authenticate(@RequestBody Client client){
+//        return new ResponseEntity<>(this.ccs.authenticate(client.getName(), client.getPassword()),HttpStatus.OK);
+//    }
+
     @GetMapping(path = "client/all")
     public ResponseEntity<List<Client>> getClients(){
       return new ResponseEntity<>(this.ccs.getAllClients(),HttpStatus.OK);

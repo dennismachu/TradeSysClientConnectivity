@@ -17,7 +17,9 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 
+import javax.naming.AuthenticationException;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClientConnectivityService{
@@ -36,6 +38,18 @@ public class ClientConnectivityService{
 
     @Autowired
     private ProductRepo productRepo;
+
+//    public boolean authenticate (String username, String password){
+//        boolean result = false;
+//         Client client = this.clientRepo.authenticate(username,password).
+//                 orElseThrow(()->new UserNotFoundException("User not found"));
+//
+//         if (client.getName().equals(username) && client.getPassword().equals(password)){
+//             result = true;
+//         }
+//
+//         return result;
+//    }
 
     public Client addClient (Client client){
         return this.clientRepo.save(client);
@@ -77,7 +91,7 @@ public class ClientConnectivityService{
 
     public Portfolio findPortfolioByID(Long ID){
         return this.portfolioRepo.findPortfolioByID(ID)
-                .orElseThrow(()-> new PortfolioNotFoundExcepiton("Portfolio with ID: "+ID + " was not found."));
+                .orElseThrow(()-> new PortfolioNotFoundException("Portfolio with ID: "+ID + " was not found."));
     }
 
     public List<Portfolio> getAllPortfolios (){

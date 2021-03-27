@@ -12,17 +12,31 @@ public class Client implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false, nullable = false)
     private Long ID;
-
-
-    private String name;
+    private String username;
     private double funds;
+    private String password;
 
+    public Client(String name, double funds, String password) {
+        this.username = name;
+        this.password = password;
+        this.funds = funds;
+
+    }
 
     public Client(){
     }
 
-    public Client( String name) {
-        this.name = name;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Client(String name) {
+        this.username = name;
     }
 
     public Long getID() {
@@ -30,11 +44,11 @@ public class Client implements Serializable {
     }
 
     public String getName() {
-        return name;
+        return username;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.username = name;
     }
 
     public double getFunds() {

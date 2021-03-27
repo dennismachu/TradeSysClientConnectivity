@@ -11,7 +11,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
-    private Long id;
+    private Long ID;
     private String ticker;
     private double lastTradedPrice; // current market price (last accepted market price)
                                     // should interface with product pricing service
@@ -27,7 +27,7 @@ public class Product {
     }
 
     public Long getId() {
-        return id;
+        return ID;
     }
 
     public String getTicker() {
