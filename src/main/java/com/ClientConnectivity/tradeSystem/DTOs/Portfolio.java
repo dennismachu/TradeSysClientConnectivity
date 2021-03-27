@@ -1,11 +1,14 @@
 package com.ClientConnectivity.tradeSystem.DTOs;
 
-import org.springframework.stereotype.Component;
 
-import java.util.List;
 
-@Component
+import javax.persistence.Entity;
+
+
+@Entity
 public class Portfolio {
+
+    private Long Id;
     private String name;
-    private List<Product> products;
+
 }

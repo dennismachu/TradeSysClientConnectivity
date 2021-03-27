@@ -1,15 +1,15 @@
 package com.ClientConnectivity.tradeSystem.DAOs;
 
 import com.ClientConnectivity.tradeSystem.DTOs.Client;
-import com.ClientConnectivity.tradeSystem.DTOs.ProductOrder;
+import com.ClientConnectivity.tradeSystem.DTOs.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+
 @Repository
-public interface OrderRepo extends JpaRepository<ProductOrder,Long> {
+public interface ProductRepo extends JpaRepository<Product, Long> {
 
-    Optional<ProductOrder> findProductOrderByID(Long ID);
-
+    Optional<Product> findProductByID(Long ID);
 }

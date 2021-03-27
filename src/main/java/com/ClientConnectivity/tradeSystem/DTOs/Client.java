@@ -16,7 +16,7 @@ public class Client implements Serializable {
 
     private String name;
     private double funds;
-   // private List<Portfolio> portfolios;
+
 
     public Client(){
     }

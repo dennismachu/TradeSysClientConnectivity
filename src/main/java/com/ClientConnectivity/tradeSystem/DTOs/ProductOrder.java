@@ -15,7 +15,7 @@ public class ProductOrder implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false, nullable = false)
-    private Long id; //random UUID string;
+    private Long id;
 
     private String orderId;
     private String productName; //product name
