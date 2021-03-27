@@ -77,6 +77,9 @@ dependencies {
 	//DB
 	implementation group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
 	implementation 'org.postgresql:postgresql'
+
+	//Redis
+	implementation group: 'redis.clients', name: 'jedis', version: '3.5.2'
 }
 
 test {

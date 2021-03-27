@@ -1,10 +1,10 @@
 package com.ClientConnectivity.tradeSystem.controllers;
 
-import com.ClientConnectivity.tradeSystem.models.Client;
-import com.ClientConnectivity.tradeSystem.models.ProductOrder;
+import com.ClientConnectivity.tradeSystem.DTOs.Client;
 import com.ClientConnectivity.tradeSystem.services.ClientConnectivityService;
-import com.ClientConnectivity.tradeSystem.services.OrderValidationClient;
+import com.ClientConnectivity.tradeSystem.utils.OrderValidationClient;
 import com.example.consumingwebservice.wsdl.PostOrderResponse;
+import com.example.consumingwebservice.wsdl.ProductOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -55,6 +55,12 @@ public class ClientController {
 
     @PostMapping(value = "/validate")
     public ResponseEntity<PostOrderResponse> validateOrder (@RequestBody ProductOrder productOrder){
+
+        //Client client = ccs.findClientByID();
+
+           productOrder.setFunds(100000);
+           productOrder.setQuantityOwned(5000);
+
 
         PostOrderResponse newResponse = orderValidationClient.validateOrder(productOrder);
         return new ResponseEntity<>(newResponse,HttpStatus.OK);
