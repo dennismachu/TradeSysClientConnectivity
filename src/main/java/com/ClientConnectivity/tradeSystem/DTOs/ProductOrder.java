@@ -25,6 +25,9 @@ public class ProductOrder implements Serializable {
     @CreationTimestamp
     private java.sql.Time timeCreated;
 
+    private Long client_id ;
+    private Long portfolio_id;
+
     public ProductOrder() {
 
     }
@@ -78,16 +81,34 @@ public class ProductOrder implements Serializable {
         this.orderId = orderId;
     }
 
+    public Long getClient_id() {
+        return client_id;
+    }
+
+    public void setClient_id(Long client_id) {
+        this.client_id = client_id;
+    }
+
+    public Long getPortfolio_id() {
+        return portfolio_id;
+    }
+
+    public void setPortfolio_id(Long portfolio_id) {
+        this.portfolio_id = portfolio_id;
+    }
+
     @Override
     public String toString() {
         return "ProductOrder{" +
-                "id=" + ID +
+                "ID=" + ID +
                 ", orderId='" + orderId + '\'' +
                 ", productName='" + productName + '\'' +
                 ", price=" + price +
                 ", quantity=" + quantity +
                 ", side='" + side + '\'' +
                 ", timeCreated=" + timeCreated +
+                ", client_id=" + client_id +
+                ", portfolio_id=" + portfolio_id +
                 '}';
     }
 }
