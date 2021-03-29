@@ -3,7 +3,7 @@ package com.ClientConnectivity.tradeSystem.DTOs;
 
 import javax.persistence.*;
 import java.io.Serializable;
-
+import java.util.List;
 
 
 @Entity
@@ -15,6 +15,12 @@ public class Client implements Serializable {
     private String username;
     private double funds;
     private String password;
+
+    /**
+     * Query client to get it's portfolios
+     */
+    @ManyToMany(mappedBy = "client_id",cascade = CascadeType.ALL)
+    private List<Portfolio> portfolios;
 
     public Client(String username, double funds, String password) {
         this.username = username;
@@ -55,5 +61,11 @@ public class Client implements Serializable {
         this.funds = funds;
     }
 
+    public List<Portfolio> getPortfolios() {
+        return portfolios;
+    }
 
+    public void setPortfolios(List<Portfolio> portfolios) {
+        this.portfolios = portfolios;
+    }
 }
