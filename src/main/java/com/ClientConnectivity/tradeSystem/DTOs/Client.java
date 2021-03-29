@@ -16,11 +16,10 @@ public class Client implements Serializable {
     private double funds;
     private String password;
 
-    public Client(String name, double funds, String password) {
-        this.username = name;
-        this.password = password;
+    public Client(String username, double funds, String password) {
+        this.username = username;
         this.funds = funds;
-
+        this.password = password;
     }
 
     public Client(){
@@ -35,20 +34,17 @@ public class Client implements Serializable {
         this.password = password;
     }
 
-    public Client(String name) {
-        this.username = name;
-    }
 
     public Long getID() {
         return ID;
     }
 
-    public String getName() {
+    public String getUsername() {
         return username;
     }
 
-    public void setName(String name) {
-        this.username = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public double getFunds() {

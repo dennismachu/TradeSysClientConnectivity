@@ -39,17 +39,12 @@ public class ClientConnectivityService{
     @Autowired
     private ProductRepo productRepo;
 
-//    public boolean authenticate (String username, String password){
-//        boolean result = false;
-//         Client client = this.clientRepo.authenticate(username,password).
-//                 orElseThrow(()->new UserNotFoundException("User not found"));
-//
-//         if (client.getName().equals(username) && client.getPassword().equals(password)){
-//             result = true;
-//         }
-//
-//         return result;
-//    }
+    public Client authenticate (String username, String password){
+
+         return  this.clientRepo.authenticate(username,password).
+                 orElseThrow(()->new UserNotFoundException("User not found"));
+
+    }
 
     public Client addClient (Client client){
         return this.clientRepo.save(client);
