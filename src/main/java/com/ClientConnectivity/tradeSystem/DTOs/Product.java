@@ -16,6 +16,8 @@ public class Product {
     private double lastTradedPrice; // current market price (last accepted market price)
                                     // should interface with product pricing service
 
+     private Long portfolio_id;
+
 
     public Product(String ticker, double lastTradedPrice) {
         this.ticker = ticker;
@@ -46,5 +48,11 @@ public class Product {
         this.lastTradedPrice = lastTradedPrice;
     }
 
+    public Long getPortfolio_id() {
+        return portfolio_id;
+    }
 
+    public void setPortfolio_id(Long portfolio_id) {
+        this.portfolio_id = portfolio_id;
+    }
 }

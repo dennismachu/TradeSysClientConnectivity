@@ -3,6 +3,7 @@ package com.ClientConnectivity.tradeSystem.DTOs;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -13,6 +14,9 @@ public class Portfolio {
     private Long ID;
     private String name;
     private Long client_id ;
+
+    @ManyToMany(mappedBy = "portfolio_id",cascade = CascadeType.ALL)
+    private List<Product> products;
 
     public Long getID() {
         return ID;
@@ -36,5 +40,13 @@ public class Portfolio {
 
     public void setClient_id(Long client_id) {
         this.client_id = client_id;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }
