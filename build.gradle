@@ -6,7 +6,9 @@ plugins {
 
 group = 'com.ClientConnectivity'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+java{
+	sourceCompatibility = JavaVersion.current()
+}
 
 // tag::configurations[]
 configurations {
